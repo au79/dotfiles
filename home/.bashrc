@@ -36,21 +36,12 @@ export LC_COLLATE=C
 export BLOCKSIZE=K
 export EDITOR="emacs -nw"
 export PAGER='most -c'
-#export LD_PRELOAD="/usr/local/lib/amd64/libstderred.so"
 # The next two are for JavaHL
-export LD_LIBRARY_PATH=/usr/lib/jni:/usr/lib/oracle/11.2/client64/lib
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
-export AXIS2_HOME=/usr/local/axis2-1.5.3
-export XMLBEANS_HOME=/usr/local/xmlbeans-2.5.0
-export CXF_HOME=/usr/local/apache-cxf-2.3.5
-export M2_HOME=/usr/local/maven
-export PROCESSING_HOME=/usr/local/processing-2.0b7
+#export LD_LIBRARY_PATH=/usr/lib/jni:/usr/lib/oracle/11.2/client64/lib
 
-export PATH=/usr/kerberos/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/X11R6/bin:${HOME}/bin:/usr/X11R6/lib/xscreensaver:/usr/local/eclipse:${M2_HOME}/bin:/usr/local/flex2/bin:/usr/local/XAmple-distr:/usr/local/SQuirreL:/usr/local/flex_sdk_4/bin:${AXIS2_HOME}/bin:${XMLBEANS_HOME}/bin:${CXF_HOME}/bin:/usr/lib/oracle/11.2/client64/bin:${PROCESSING_HOME}
+export PATH=${PATH}:${HOME}/bin
 
 export ORACLE_HOME=/usr/lib/oracle/11.2/client64
-
-export CLASSPATH=/usr/share/java:${XMLBEANS_HOME}/lib/xbean.jar:${XMLBEANS_HOME}/lib/jsr173_1.0_api.jar:${PROCESSING_HOME}/lib:${CLASSPATH}
 
 export TNS_ADMIN=/usr/lib/oracle/11.2/client64/network/admin
 
