@@ -1,0 +1,18 @@
+hardstatus on
+hardstatus string "%{+B}%H:%{-} %-w %{+B}> %n %t <%{-} %+w"
+deflogin off
+defscrollback 2000
+escape ^Zz
+nethack on
+startup_message off
+
+screen -t root 0 sudo su -
+screen -t red 1 sudo emacs -nw
+screen -t line 2
+screen -t ed 3 emacs -nw
+screen -t man 4
+screen -t roll 5
+screen -t yaw 6
+screen -t pod 7
+
+bind 'X' remove

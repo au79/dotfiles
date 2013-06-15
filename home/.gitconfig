@@ -1,0 +1,9 @@
+[user]
+	name = Christopher Goldman (au79)
+	email = dev@oolong.com
+[credential]
+	helper = cache --timeout=3600
+[color]
+        ui = on
+[core]
+	excludesfile = /home/gold/.config/git/ignore
