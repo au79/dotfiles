@@ -7,3 +7,5 @@
         ui = on
 [core]
 	excludesfile = /home/gold/.config/git/ignore
+[push]
+	default = simple
