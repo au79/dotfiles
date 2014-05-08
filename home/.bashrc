@@ -28,7 +28,7 @@ PS1="`whoami`@`hostname | sed 's/\..*//'`:\w\$ "
 
 ## Environment variables
 export CVS_RSH=ssh
-export CVSROOT_DHAP=:ext:cgoldman@cvs.dev:/u01/cvsroot
+export CVSROOT_DHAP=:ext:cgoldman@cvs.dev.sf.dhapdigital.com:/u01/cvsroot
 export CVSROOT_TMS_DEV=:pserver:goldmanc@pswebp41.toyota:/cvsroot
 export CVSROOT=$CVSROOT_DHAP
 export LANG=en_US.UTF-8
@@ -44,6 +44,10 @@ export PATH=${PATH}:${HOME}/bin
 export ORACLE_HOME=/usr/lib/oracle/11.2/client64
 
 export TNS_ADMIN=/usr/lib/oracle/11.2/client64/network/admin
+
+export TZ='America/Los_Angeles'
+
+
 
 if [ -f ~/.config/ls/LS_COLORS ]; then
     eval $(dircolors -b ~/.config/ls/LS_COLORS)
@@ -61,4 +65,7 @@ fi
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
+
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 

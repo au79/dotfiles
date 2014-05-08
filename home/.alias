@@ -47,3 +47,5 @@ alias fum="fusermount -u"
 alias kws='sudo bash /opt/IBM/WebSphere/AppServer/bin/stopServer.sh server1'
 alias sws='sudo bash /opt/IBM/WebSphere/AppServer/bin/startServer.sh server1'
 alias kpwup='sudo /opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user gold -password @QASE#wazxde -f ~gold/git/buykp-github/src/projects/web-services/update.py'
+alias mce='( cd /usr/local/mcedit/mcedit; python mcedit.py )'
+
