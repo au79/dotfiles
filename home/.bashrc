@@ -28,7 +28,7 @@ PS1="`whoami`@`hostname | sed 's/\..*//'`:\w\$ "
 
 ## Environment variables
 export CVS_RSH=ssh
-export CVSROOT_DHAP=:ext:cgoldman@cvs.dev.sf.dhapdigital.com:/u01/cvsroot
+export CVSROOT_DHAP=:ext:cgoldman@cvs.sf.dhapdigital.com:/u01/cvsroot
 export CVSROOT_TMS_DEV=:pserver:goldmanc@pswebp41.toyota:/cvsroot
 export CVSROOT=$CVSROOT_DHAP
 export LANG=en_US.UTF-8
@@ -69,3 +69,10 @@ fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
+
+# The next line updates PATH for the Google Cloud SDK.
+
+-f /usr/local/dev/google-cloud-sdk/path.bash.inc && source /usr/local/dev/google-cloud-sdk/path.bash.inc
+
+# The next line enables bash completion for gcloud.
+-f /usr/local/dev/google-cloud-sdk/completion.bash.inc && source /usr/local/dev/google-cloud-sdk/completion.bash.inc
