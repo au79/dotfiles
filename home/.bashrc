@@ -76,3 +76,6 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # The next line enables bash completion for gcloud.
 -f /usr/local/dev/google-cloud-sdk/completion.bash.inc && source /usr/local/dev/google-cloud-sdk/completion.bash.inc
+
+
+source "${HOME}/.bashrc.d/svn.bashrc"
