@@ -72,10 +72,10 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
 
--f /usr/local/dev/google-cloud-sdk/path.bash.inc && source /usr/local/dev/google-cloud-sdk/path.bash.inc
+[ -f /usr/local/dev/google-cloud-sdk/path.bash.inc ] && . /usr/local/dev/google-cloud-sdk/path.bash.inc
 
 # The next line enables bash completion for gcloud.
--f /usr/local/dev/google-cloud-sdk/completion.bash.inc && source /usr/local/dev/google-cloud-sdk/completion.bash.inc
+[ -f /usr/local/dev/google-cloud-sdk/completion.bash.inc ] && . /usr/local/dev/google-cloud-sdk/completion.bash.inc
 
 
 source "${HOME}/.bashrc.d/svn.bashrc"
