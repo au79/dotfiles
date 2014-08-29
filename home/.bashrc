@@ -68,7 +68,7 @@ fi
 
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-
+source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 # The next line updates PATH for the Google Cloud SDK.
 
