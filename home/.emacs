@@ -86,3 +86,8 @@
 
 (global-set-key (kbd "M-j") `delete-indentation)
 (global-set-key (kbd "C-M-j") (lambda() (interactive (delete-indentation -1))))
+
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
