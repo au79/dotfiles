@@ -3,13 +3,23 @@ alias h='fc -l -30'
 alias j=jobs
 alias m='most -c'
 
-alias la='ls -a --color=auto'
-alias ll='ls -laF --color=auto'
-alias l='ls -lF --color=auto'
-alias lh='ls -lh --color=auto'
-alias lR='ls -lR --color=auto'
-alias lt='ls -ltrF --color=auto'
-alias ls='ls --color=auto'
+if [ "${HOME:0:6}" == "/Users" ]
+then
+    alias la='ls -a'
+    alias ll='ls -laF'
+    alias l='ls -lF'
+    alias lh='ls -lh'
+    alias lR='ls -lR'
+    alias lt='ls -ltrF'
+else
+    alias la='ls -a --color=auto'
+    alias ll='ls -laF --color=auto'
+    alias l='ls -lF --color=auto'
+    alias lh='ls -lh --color=auto'
+    alias lR='ls -lR --color=auto'
+    alias lt='ls -ltrF --color=auto'
+    alias ls='ls --color=auto'
+fi
 
 alias g='egrep'
 alias c='clear'
