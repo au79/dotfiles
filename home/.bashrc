@@ -78,4 +78,4 @@ source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 [ -f /usr/local/dev/google-cloud-sdk/completion.bash.inc ] && . /usr/local/dev/google-cloud-sdk/completion.bash.inc
 
 
-[-f "${HOME}/.bashrc.d/svn.bashrc" ] && . "${HOME}/.bashrc.d/svn.bashrc"
+[ -f "${HOME}/.bashrc.d/svn.bashrc" ] && . "${HOME}/.bashrc.d/svn.bashrc"
