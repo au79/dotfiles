@@ -39,7 +39,7 @@ export PAGER='most -c'
 # The next two are for JavaHL
 #export LD_LIBRARY_PATH=/usr/lib/jni:/usr/lib/oracle/11.2/client64/lib
 
-export PATH=${PATH}:${HOME}/bin
+export PATH="${PATH}:${HOME}/bin"
 
 export ORACLE_HOME=/usr/lib/oracle/11.2/client64
 
@@ -79,3 +79,9 @@ source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 
 [ -f "${HOME}/.bashrc.d/svn.bashrc" ] && . "${HOME}/.bashrc.d/svn.bashrc"
+
+ANDROID_SDK_TOOLS_DIR=/Users/cgoldman/Library/Android/sdk/tools
+if [ -d "${ANDROID_SDK_TOOLS_DIR}" ]; then
+    export PATH="${PATH}:${ANDROID_SDK_TOOLS_DIR}"
+fi
+
