@@ -63,9 +63,13 @@ fi
 
 ## Enable programmable completion
 if [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
+    . /etc/bash_completion
 fi
 
+hash brew &&
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
