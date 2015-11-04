@@ -199,47 +199,14 @@ pwl () {
     vwl
 }
 
-wls () {
-	while true
-	do
-		clear
-		iwlist wlan0 scan | grep -q off &&  echo dii
-		sleep 3
-	done
-}
-
 #  for f in .; do n=`find $f -type f | wc -l`; echo "$n $f"; done | sort -n
-
-v () {
-    if [ -z "$1" ]
-    then echo "You must supply a glob pattern."
-    else
-	if [ -n "$2" ]
-	then echo "You may only supply one argument."
-	elif [ $(expr "$1" : ".* ") -gt 0 ]
-	then
-	    echo "Spaces are not allowed in the glob pattern."
-	else
-	    ocd=$(pwd)
-	    
-	    cd ~/cvs-dhap/src/lib # Change this.
-
-	    for dir in *$1*
-	    do
-		if [ -d "${dir}" ]
-		then
-		    echo -n "${dir}: "
-		    cd "${dir}"
-		    echo $(ls -1v | grep [0-9])
-		    cd ..
-		fi
-	    done
-
-	    cd ${ocd}
-	fi
-    fi
-}
 
 e () {
     emacsclient "$@" 2> /dev/null &
+}
+
+show-profile () {
+    if [ -z "$1" ]
+    then >&2 echo "You must specify a .ipa file."
+    fi
 }

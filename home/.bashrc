@@ -66,9 +66,11 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-hash brew &&
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    hash brew 2> /dev/null &&
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"

@@ -3,8 +3,7 @@ alias h='fc -l -30'
 alias j=jobs
 alias m='most -c'
 
-if [ "${HOME:0:6}" == "/Users" ]
-then
+if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias la='ls -a'
     alias ll='ls -laF'
     alias l='ls -lF'
