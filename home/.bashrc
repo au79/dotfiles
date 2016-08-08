@@ -47,6 +47,8 @@ export TNS_ADMIN=/usr/lib/oracle/11.2/client64/network/admin
 
 export TZ='America/Los_Angeles'
 
+export ORG_GRADLE_PROJECT_fabricApiKey=8fbf654066ad4360da50ca8b1b143e2253fe13fa
+export ORG_GRADLE_PROJECT_fabricApiSecret=10190b80ca75ba039f999a88e3c8029df1220a03488b38f577e6d3a7079bcf83
 
 
 if [ -f ~/.config/ls/LS_COLORS ]; then
