@@ -93,3 +93,7 @@ if [ -d "${ANDROID_SDK_TOOLS_DIR}" ]; then
     export PATH="${PATH}:${ANDROID_SDK_TOOLS_DIR}"
 fi
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
