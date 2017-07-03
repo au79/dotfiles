@@ -22,6 +22,9 @@
  '(transient-mark-mode t)
  '(uniquify-buffer-name-style (quote forward))
  '(user-mail-address "cgoldman@dhapdigital.com"))
+
+(setq smerge-command-prefix "\C-cv")
+
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -78,10 +81,9 @@
 
 (define-key function-key-map "\e[Z" [S-tab])
 
-(require 'icicles)
+;;(require 'icicles)
 ;;(icy-mode 1)
-
-(defalias 'list-buffers 'ibuffer)
+;;(defalias 'list-buffers 'ibuffer)
 
 
 (global-set-key (kbd "M-j") `delete-indentation)
