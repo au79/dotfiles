@@ -100,6 +100,6 @@ export NVM_DIR="$HOME/.nvm"
 
 if type "jenv" &> /dev/null
 then
-    echo 'eval "$(jenv init -)"' >> ~/.bash_profile
+    eval "$(jenv init -)"
 fi
 
