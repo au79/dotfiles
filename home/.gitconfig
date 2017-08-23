@@ -1,11 +1,31 @@
 [user]
-	name = Christopher Goldman (au79)
+	name = Christopher Goldman
 	email = dev@oolong.com
+	signingkey = 2D70AADB
 [credential]
 	helper = cache --timeout=3600
 [color]
         ui = on
 [core]
-	excludesfile = /home/gold/.config/git/ignore
+	excludesfile = ~/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [push]
 	default = simple
+[alias]
+	stashed = stash list --pretty=format:'%gd: %Cred%h%Creset %Cgreen[%ar]%Creset %s'
+	conflicts = diff --name-only --diff-filter=U
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[commit]
+	template = ~/.stCommitMsg
