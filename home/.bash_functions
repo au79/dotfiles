@@ -163,42 +163,6 @@ to () {
   fi
 }
 
-kwl () {
-		psg [Ww]eb[Ll]ogic | grep -v %MEM | sed -e 's/  */ /g' | cut -d' ' -f 2 | xargs kill && echo Done.
-}
-
-kwl9 () {
-		psg [Ww]eb[Ll]ogic | grep -v %MEM | sed -e 's/  */ /g' | cut -d' ' -f 2 | xargs kill -9 && echo DONE.
-}
-
-vwl () {
-    most -cw /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/wl103.log /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/social_platform_admin.log /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/social_platform_ws.log
-}
-
-rmwllogs () {
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/social_platform_admin.log 2> /dev/null
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/social_platform_ws.log 2> /dev/null
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/scion_social.log 2> /dev/null
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/configurator_lexus_admin.log 2> /dev/null
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/configurator_lexus.log 2> /dev/null
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/configurator_toyota_mobile.log 2> /dev/null
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/configurator_services_x.log 2> /dev/null
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/toyota_oos_admin.log 2> /dev/null
-    rm /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/toyota_oos.log 2> /dev/null
-}
-
-swl () {
-    rmwllogs
-    (JAVA_VM=-server /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/startWebLogic.sh >& /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/wl103.log &)
-    vwl
-}
-
-pwl () {
-    rmwllogs
-    (JAVA_VM=-server /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/bin/startWebLogic_jprofiler.sh >& /usr/local/bea_wl10.3/user_projects/domains/byl4_domain/wl103.log &)
-    vwl
-}
-
 #  for f in .; do n=`find $f -type f | wc -l`; echo "$n $f"; done | sort -n
 
 e () {
