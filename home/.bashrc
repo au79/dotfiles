@@ -22,15 +22,7 @@ export PROMPT_COMMAND='history -a'
 ## Correct minor spelling errors in directory paths (with the "cd" command)
 shopt -s cdspell
 
-
-# set prompt: ``username@hostname$ '' 
-PS1="`whoami`@`hostname | sed 's/\..*//'`:\w\$ "
-
 ## Environment variables
-export CVS_RSH=ssh
-export CVSROOT_DHAP=:ext:cgoldman@cvs.sf.dhapdigital.com:/u01/cvsroot
-export CVSROOT_TMS_DEV=:pserver:goldmanc@pswebp41.toyota:/cvsroot
-export CVSROOT=$CVSROOT_DHAP
 export LANG=en_US.UTF-8
 export LC_COLLATE=C
 export BLOCKSIZE=K
@@ -39,7 +31,7 @@ export PAGER='most -c'
 # The next two are for JavaHL
 #export LD_LIBRARY_PATH=/usr/lib/jni:/usr/lib/oracle/11.2/client64/lib
 
-export PATH="${PATH}:${HOME}/bin"
+export PATH="/usr/local/opt/ruby@2.3/bin:${PATH}:${HOME}/bin"
 
 export ORACLE_HOME=/usr/lib/oracle/11.2/client64
 
@@ -103,3 +95,10 @@ then
     eval "$(jenv init -)"
 fi
 
+# Enable bash completion for git
+[ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && . /usr/local/etc/bash_completion.d/git-completion.bash
+[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && . /usr/local/etc/bash_completion.d/git-prompt.sh
+
+PS1="\u@\h:\w$(__git_ps1)\$ "
+
+[ -f "${HOME}/.bashrc.d/local.bashrc" ] && . "${HOME}/.bashrc.d/local.bashrc"
