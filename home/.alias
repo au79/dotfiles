@@ -37,7 +37,6 @@ alias t='telnet'
 
 alias cvsd='cvs -q diff | grep "^RCS"'
 alias cvsq='cvs -q'
-alias tant="ant -Droot.dir=/home/gold/cvs-tms-dev/src -Denv.CVSROOT=$CVSROOT_TMS_DEV"
 alias wgh='wget -S -O /dev/null'
 alias srd='screen -rd || screen'
 alias xnw='emacs -nw'
@@ -47,14 +46,10 @@ alias ped='perl -lpe'
 alias s='apt-cache search'
 alias S='apt-cache show'
 
-#alias mvn-arch='mvn archetype:generate -DarchetypeCatalog=local -DarchetypeCatalog=remote -DarchetypeCatalog=http://repo.fusesource.com/maven2 -DarchetypeCatalog=http://cocoon.apache.org -DarchetypeCatalog=http://download.java.net/maven/2 -DarchetypeCatalog=http://myfaces.apache.org -DarchetypeCatalog=http://tapestry.formos.com/maven-repository -DarchetypeCatalog=http://scala-tools.org -DarchetypeCatalog=http://www.terracotta.org/download/reflector/maven2/'
-
 alias jm='eval cd $(emacsclient -e "(with-current-buffer (window-buffer (frame-selected-window)) (expand-file-name default-directory))" | '"sed -E 's/(^\")|(\"$)//g')"
 
 alias fum="fusermount -u"
 
-alias kws='sudo bash /opt/IBM/WebSphere/AppServer/bin/stopServer.sh server1'
-alias sws='sudo bash /opt/IBM/WebSphere/AppServer/bin/startServer.sh server1'
-alias kpwup='sudo /opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -user gold -password @QASE#wazxde -f ~gold/git/buykp-github/src/projects/web-services/update.py'
-alias mce='( cd /usr/local/mcedit/mcedit; python mcedit.py )'
+alias dmvn='docker run -v $PWD:/app -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -p 5555:5555 -e MAVEN_OPTS="-Xms1024m -Xmx4096m" --network=host -t audiusa/maven-workflow'
 
+alias bse='(cd /opt/battlesnake-engine/; ./engine dev)'
