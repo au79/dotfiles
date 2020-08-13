@@ -62,3 +62,9 @@ alias db='(mvn clean install -DskipTests -Dfrontend.prod=false -Pauto-deploy,aut
 alias dbp='(mvn clean install -DskipTests -Dfrontend.prod=true -Pauto-deploy,auto-deploy-publish,generate-js-css)'
 alias dp='(mvn clean install -DskipTests -Dfrontend.prod=false -Pauto-deploy-publish,generate-js-css)'
 alias dpp='(mvn clean install -DskipTests -Dfrontend.prod=true -Pauto-deploy-publish,generate-js-css)'
+
+alias docker-rm-dangling-volumes='docker volume rm $(docker volume ls -qf dangling=true)'
+
+alias reset-export-timestamp='curl -X POST -H '"'"'Content-Type: application/x-www-form-urlencoded'"'"' -i '"'"'https://audit-service.audiusasite.com/audit-service/audit'"'"' --data '"'"'crud=UPDATE&className=com.akqa.audi.job.mdm.export.service.TimestampBookmark&naturalKey=ReservationsExport&payload={"epochSeconds":0}'"'"
+
+alias swagger='docker run -d -p 80:8080 swaggerapi/swagger-editor'
