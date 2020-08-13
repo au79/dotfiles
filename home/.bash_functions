@@ -169,8 +169,13 @@ e () {
     emacsclient "$@" 2> /dev/null &
 }
 
-show-profile () {
-    if [ -z "$1" ]
-    then >&2 echo "You must specify a .ipa file."
-    fi
+jupyter () {
+    [[ -d "$1" ]] || ( >&2 echo "You must specify a project directory.  Aborting." && return 1 )
+    docker run --name tf-notebook -p 8888:8888 -e GRANT_SUDO=yes --user root -e JUPYTER_TOKEN='' -v "$1:/home/jovyan/work" oolong/tensorflow-notebook
+    docker container rm tf-notebook
+}
+
+
+dflask () {
+    docker run --name python-flask-5000 --rm -p 5000:5000 -v "$(pwd)/app":/app oolong/python-flask-docker
 }
