@@ -46,11 +46,10 @@ alias ped='perl -lpe'
 alias s='apt-cache search'
 alias S='apt-cache show'
 
-alias jm='eval cd $(emacsclient -e "(with-current-buffer (window-buffer (frame-selected-window)) (expand-file-name default-directory))" | '"sed -E 's/(^\")|(\"$)//g')"
-
-alias fum="fusermount -u"
-
-alias dmvn='docker run -v $PWD:/app -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2 -p 5555:5555 -e MAVEN_OPTS="-Xms1024m -Xmx4096m" --network=host -t audiusa/maven-workflow'
+# Changes directories to the default directory for the current emacs buffer.
+# For real files, that's their containing directory.  For buffers without an underlying file,
+# it's the user's home directory.
+alias cd2e='eval cd $(emacsclient -e "(with-current-buffer (window-buffer (frame-selected-window)) (expand-file-name default-directory))" | '"sed -E 's/(^\")|(\"$)//g')"
 
 alias bse='(cd /opt/battlesnake-engine/; ./engine dev)'
 
@@ -59,3 +58,6 @@ alias djava='docker run --name java-container -p 5555:5555 -v ${PWD}:/app -t aud
 alias docker-rm-dangling-volumes='docker volume rm $(docker volume ls -qf dangling=true)'
 
 alias swagger='docker run -d -p 80:8080 swaggerapi/swagger-editor'
+
+alias mcftp='ncftp -u cgoldman@oolong.com.119387 na385.pebblehost.com'
+

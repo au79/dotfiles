@@ -179,3 +179,10 @@ jupyter () {
 dflask () {
     docker run --name python-flask-5000 --rm -p 5000:5000 -v "$(pwd)/app":/app oolong/python-flask-docker
 }
+
+jupyter () {       
+    [[ -d "$1" ]] || ( echo "You must specify a project directory.  Aborting." 1>&2 && return 1 );
+    docker run --name tf-notebook -p 8888:8888 -e JUPYTER_TOKEN='' -v "$1:/home/jovyan/work" oolong/tensorflow-notebook;
+    docker container rm tf-notebook
+}
+            
