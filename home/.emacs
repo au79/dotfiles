@@ -32,6 +32,10 @@ There are two things you can do about this warning:
  '(case-fold-search nil)
  '(column-number-mode t)
  '(current-language-environment "UTF-8")
+ '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-safe-themes
+   (quote
+    ("b89ae2d35d2e18e4286c8be8aaecb41022c1a306070f64a66fd114310ade88aa" "4cf9ed30ea575fb0ca3cff6ef34b1b87192965245776afa9e9e20c17d115f3fb" default)))
  '(indicate-buffer-boundaries (quote left))
  '(indicate-empty-lines t)
  '(js-indent-level 2)
@@ -62,8 +66,9 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "mac:textBackgroundColor" :foreground "mac:textColor" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "nil" :family "Monaco"))))
- '(font-lock-comment-face ((t (:foreground "white")))))
+
+ '(default ((t (:inherit nil :stipple nil :background "#2e3436" :foreground "#eeeeec" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "nil" :family "M+ 2m")))))
+
 
 (put 'upcase-region 'disabled nil)
 
