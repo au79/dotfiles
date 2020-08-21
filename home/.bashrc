@@ -1,3 +1,7 @@
+# Don't use Ctrl-S and Ctrl-Q for terminal flow control
+stty stop undef
+stty start undef
+
 # file permissions: rwxrwxr-x
 umask	0002
 
@@ -22,24 +26,17 @@ export PROMPT_COMMAND='history -a'
 ## Correct minor spelling errors in directory paths (with the "cd" command)
 shopt -s cdspell
 
-
-# set prompt: ``username@hostname$ '' 
-PS1="`whoami`@`hostname | sed 's/\..*//'`:\w\$ "
-
 ## Environment variables
-export CVS_RSH=ssh
-export CVSROOT_DHAP=:ext:cgoldman@cvs.sf.dhapdigital.com:/u01/cvsroot
-export CVSROOT_TMS_DEV=:pserver:goldmanc@pswebp41.toyota:/cvsroot
-export CVSROOT=$CVSROOT_DHAP
 export LANG=en_US.UTF-8
 export LC_COLLATE=C
 export BLOCKSIZE=K
 export EDITOR="emacs -nw"
 export PAGER='most -c'
+export AWS_REGION=us-west-1
 # The next two are for JavaHL
 #export LD_LIBRARY_PATH=/usr/lib/jni:/usr/lib/oracle/11.2/client64/lib
 
-export PATH="${PATH}:${HOME}/bin"
+export PATH="/usr/local/opt/ruby/bin:${PATH}:${HOME}/bin"
 
 export ORACLE_HOME=/usr/lib/oracle/11.2/client64
 
@@ -103,3 +100,32 @@ then
     eval "$(jenv init -)"
 fi
 
+# Enable bash completion for git
+[ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && . /usr/local/etc/bash_completion.d/git-completion.bash
+[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && . /usr/local/etc/bash_completion.d/git-prompt.sh
+
+PS1="\u@\h:\w$(__git_ps1)\$ "
+
+[ -f "${HOME}/.bashrc.d/local.bashrc" ] && . "${HOME}/.bashrc.d/local.bashrc"
+
+# AWS environment variables
+[ -f "${HOME}/.aws-env" ] && . "${HOME}/.aws-env"
+
+
+AWS_BIN_DIR=/usr/local/aws/bin
+if [ -d "${AWS_BIN_DIR}" ]; then
+    export PATH="${PATH}:${AWS_BIN_DIR}"
+    complete -C "${AWS_BIN_DIR}/aws_completer" aws
+fi
+
+CUDA_BIN_DIR=/usr/local/cuda/bin
+if [ -d "${CUDA_BIN_DIR}" ]; then
+    export PATH="${PATH}:${CUDA_BIN_DIR}"
+fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/__tabtab.bash ] && . ~/.config/tabtab/__tabtab.bash || true

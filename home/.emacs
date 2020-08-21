@@ -1,3 +1,22 @@
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl (warn "\
+Your version of Emacs does not support SSL connections,
+which is unsafe because it allows man-in-the-middle attacks.
+There are two things you can do about this warning:
+1. Install an Emacs version that does support SSL and be safe.
+2. Remove this warning from your init file so you won't see it again."))
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+  ;; and `package-pinned-packages`. Most users will not need or want to do this.
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  )
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -6,18 +25,24 @@
 (package-initialize)
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(case-fold-search nil)
  '(column-number-mode t)
- '(confluence-default-space-alist (list (cons confluence-url "~cgoldman")))
- '(confluence-url "https://confluence.dhapdigital.com/rpc/xmlrpc")
  '(current-language-environment "UTF-8")
  '(indicate-buffer-boundaries (quote left))
  '(indicate-empty-lines t)
+ '(js-indent-level 2)
  '(load-home-init-file t t)
+ '(mac-command-modifier (quote super))
+ '(mac-option-modifier (quote (:ordinary meta :function meta :mouse meta)))
+ '(markdown-command "marked-gfm")
+ '(markdown-command-needs-filename t)
+ '(package-selected-packages
+   (quote
+    (typescript-mode rjsx-mode w3m dockerfile-mode go-mode web-server websocket markdown-preview-mode terraform-mode w32-browser groovy-mode w3 coffee-mode)))
  '(perl-continued-brace-offset -2)
  '(perl-continued-statement-offset 2)
  '(perl-indent-level 2)
@@ -27,17 +52,18 @@
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(transient-mark-mode t)
- '(uniquify-buffer-name-style (quote forward))
- '(user-mail-address "cgoldman@dhapdigital.com"))
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify))
+ '(user-mail-address "cgoldman@oolong.com"))
 
 (setq smerge-command-prefix "\C-cv")
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "mac:textBackgroundColor" :foreground "mac:textColor" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "nil" :family "Monaco"))))
+ '(font-lock-comment-face ((t (:foreground "white")))))
 
 (put 'upcase-region 'disabled nil)
 
@@ -82,6 +108,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.aj$" . java-mode))
 
+(add-to-list 'auto-mode-alist '("\\.xslt\\'" . xml-mode))
 
 (setq-default c-basic-offset 2)
 (setq-default indent-tabs-mode nil)
@@ -100,3 +127,18 @@
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'markdown-preview-mode "markdown-preview-mode"
+   "Minor mode for previewing Markdown files" t)
+(require 'markdown-preview-mode)
+(setq markdown-preview-stylesheets (list "http://au79.github.io/markdown-dark-mode.css"))
+
+
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+(require 'rjsx-mode)
+(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("pages\\/.*\\.js\\'" . rjsx-mode))
+(setq js2-strict-missing-semi-warning nil)
