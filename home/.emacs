@@ -46,7 +46,7 @@ There are two things you can do about this warning:
  '(markdown-command-needs-filename t)
  '(package-selected-packages
    (quote
-    (typescript-mode rjsx-mode w3m dockerfile-mode go-mode web-server websocket markdown-preview-mode terraform-mode w32-browser groovy-mode w3 coffee-mode)))
+    (typescript-mode rjsx-mode w3m dockerfile-mode go-mode web-server websocket markdown-preview-mode terraform-mode w32-browser groovy-mode w3 coffee-mode autothemer markdown-mode)))
  '(perl-continued-brace-offset -2)
  '(perl-continued-statement-offset 2)
  '(perl-indent-level 2)
